@@ -108,12 +108,13 @@
 
 - (void)willAttachToView:(UIView *)view
 {
-    self.adNative.trackingView = view;
     self.adNative.viewControllerForPresentation = [self.delegate viewControllerForPresentingModalView];
     // Can only set FlurryAdNative#videoViewContainer after setting viewControllerForPresentation
     if ([self.adNative isVideoAd]) {
         self.adNative.videoViewContainer = self.videoViewContainer;
     }
+    
+    self.adNative.trackingView = view;
 }
 
 - (void)didDetachFromView:(UIView *)view
